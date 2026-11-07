@@ -1,6 +1,6 @@
 
 import { useRef, useState } from "react";
-import ResultModel from "./ResultModel";
+import ResultModal from "./ResultModal.jsx";
 
 
 export default function TimerChallenge({ title, targetTime }) {
@@ -12,6 +12,7 @@ export default function TimerChallenge({ title, targetTime }) {
     function handleStart() {
         timer.current = setTimeout(() => {
             setTimerExpired(true);
+            dialog.current.showModal()
         }, targetTime * 1000);
 
         setTimerStarted(true);
@@ -23,7 +24,7 @@ export default function TimerChallenge({ title, targetTime }) {
 
     return (
         <>
-            {timerExpired && <ResultModel ref={dialog} targetTime={targetTime} result="lost" />}
+            <ResultModal ref={dialog} targetTime={targetTime} result="lost" />
             <section className="challange">
                 <h2>{title}</h2>
 
