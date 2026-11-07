@@ -1,8 +1,8 @@
 
 
-export default function ResultModel({ result, targetTime }) {
+export default function ResultModel({ result, targetTime, ref }) {
     return (
-        <dialog className='result-model'>
+        <dialog ref={ref} className='result-model'>
             <h2>You {result}</h2>
             <p>
                 The target time was <strong>{targetTime} seconds.</strong>
@@ -10,7 +10,7 @@ export default function ResultModel({ result, targetTime }) {
             <p>
                 You stopped the timer with <strong>X second left.</strong>
             </p>
-            <form><button>Close</button></form>
+            <form method="dialog"><button>Close</button></form>
         </dialog>
     );
 }

@@ -5,6 +5,7 @@ import ResultModel from "./ResultModel";
 
 export default function TimerChallenge({ title, targetTime }) {
     const timer = useRef();
+    const dialog = useRef();
     const [timerStarted, setTimerStarted] = useState(false);
     const [timerExpired, setTimerExpired] = useState(false);
 
@@ -22,7 +23,7 @@ export default function TimerChallenge({ title, targetTime }) {
 
     return (
         <>
-            {timerExpired && <ResultModel targetTime={targetTime} result="lost" />}
+            {timerExpired && <ResultModel ref={dialog} targetTime={targetTime} result="lost" />}
             <section className="challange">
                 <h2>{title}</h2>
 
